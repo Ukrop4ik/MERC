@@ -37,8 +37,10 @@ public class Container : MonoBehaviour
 
     public void Equip(int unitContainerId, int weaponContainerId)
     {
-        Equiped[weaponContainerId] = Free[weaponContainerId];
-        Units[unitContainerId].RightHandWeapon = Equiped[weaponContainerId];
+        var weapon = Free[weaponContainerId];
+        Equiped[weaponContainerId] = weapon;
+        Free[weaponContainerId] = null;
+        Units[unitContainerId].RightHandWeapon = weapon;
     }
 
 }
